@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html  ng-app="LunchCheck">
+<head>
+	
+	<meta charset="utf-8">
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<title>ITEMS</title>
+	
+</head>
+
+<script>
+	/*
+	(function(){
+	'use strict';
+
+	angular.module('itemsApp',[])
+	.controller('itemsController',itemsController);
+
+	function itemsController($scope)
+	{
+		$scope.item="";
+		$scope.lenItem=0;
+
+		$scope.numOfItems=function()
+		{
+			var lenarr=splitString($scope.item);
+			$scope.lenItem=lenarr;
+		};
+
+		function splitString(item) 
+		{
+	  		const arr = item.split(",");
+	  		 //document.getElementById("demo").innerHTML = arr;
+	  		var lenarr=arr.length;
+	  		return lenarr;
+		};
+
+		$scope.enjoyFunc=function()
+		{
+			$scope.check="Enjoy!";
+		};
+
+		$scope.toomuchFunc=function()
+		{
+			$scope.check="Too Much!";
+		};
+
+		$scope.enterFunc=function()
+		{
+			$scope.check="Please enter data first";
+		};
+
+	}
+})();
+*/
+</script>
+
+<body>
+	<div ng-controller="LunchCheckController">
+		Enter the items : <input type="text" ng-model="item" ng-keyup="numOfItems();">
+		<br><br>
+		<div>
+			<div ng-if="lenItem==0">
+				<button ng-click="enterFunc()">Check If Too Much</button>
+				<br>
+				{{check}}
+			</div>
+			<div ng-if="0<lenItem && lenItem<=3">
+				<button ng-click="enjoyFunc()">Check If Too Much</button>
+				<br>
+				{{check}}
+			</div>
+			<div ng-if="lenItem>3">
+				<button ng-click="toomuchFunc()">Check If Too Much</button>
+				<br>
+				{{check}}
+			</div>
+		</div>
+		
+		<p id="demo"></p>
+	</div>
+</body>
+</html>
